@@ -7,7 +7,7 @@ import AppError from '@shared/errors/AppError';
 
 import uploadConfig from '@config/upload';
 import User from '../infra/typeorm/entities/User';
-import IUsersRepository from '../repositories/IUserRepository';
+import IUsersRepository from '../repositories/IUsersRepository';
 
 interface IRequest {
   user_id: string;
