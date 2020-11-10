@@ -3,9 +3,9 @@ import path from 'path';
 import fs from 'fs';
 import { inject, injectable } from 'tsyringe';
 
-import AppError from '@shared/errors/AppError';
-
 import uploadConfig from '@config/upload';
+import AppError from '../../../shared/errors/AppError';
+
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
 
