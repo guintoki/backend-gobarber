@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 import LisProviderAppointmentsService from './LisProviderAppointmentsService';
 
