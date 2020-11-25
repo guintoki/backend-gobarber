@@ -1,5 +1,5 @@
 Arguments: 
-  /home/guilherme/.nvm/versions/node/v14.10.1/bin/node /usr/share/yarn/bin/yarn.js add @type/hapi__joi -D
+  /home/guilherme/.nvm/versions/node/v14.10.1/bin/node /usr/share/yarn/bin/yarn.js add class-tranformer
 
 PATH: 
   /Users/guilherme/Library/Android/sdk/platform-tools:/Users/guilherme/Library/Android/sdk/platform-tools:/home/guilherme/.nvm/versions/node/v14.10.1/bin:/home/guilherme/.zinit/polaris/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/guilherme/Android/Sdk/tools:/home/guilherme/Android/Sdk/platform-tools:/home/guilherme/Android/Sdk/emulator:/home/guilherme/Android/Sdk/tools:/home/guilherme/Android/Sdk/tools/bin:/home/guilherme/Android/Sdk/platform-tools:/home/guilherme/Android/Sdk/emulator:/home/guilherme/Android/Sdk/tools:/home/guilherme/Android/Sdk/tools/bin:/home/guilherme/Android/Sdk/platform-tools
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@type%2fhapi__joi: Not found
+  Error: https://registry.yarnpkg.com/class-tranformer: Not found
       at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66988:18)
       at Request.self.callback (/usr/share/yarn/lib/cli.js:140749:22)
       at Request.emit (events.js:314:20)
@@ -45,6 +45,7 @@ npm manifest:
       "celebrate": "^13.0.4",
       "cors": "^2.8.5",
       "date-fns": "^2.16.1",
+      "dotenv": "^8.2.0",
       "express": "^4.17.1",
       "express-async-errors": "^3.1.1",
       "handlebars": "^4.7.6",
@@ -62,6 +63,7 @@ npm manifest:
       "@types/bcryptjs": "^2.4.2",
       "@types/cors": "^2.8.8",
       "@types/express": "^4.17.8",
+      "@types/hapi__joi": "^17.1.6",
       "@types/jest": "^26.0.15",
       "@types/jsonwebtoken": "^8.5.0",
       "@types/mongodb": "^3.5.34",
@@ -716,6 +718,11 @@ Lockfile:
     integrity sha512-mWA/4zFQhfvOA8zWkXobwJvBD7vzcxgrOQ0J5CH1votGqdq9m7+FwtGaqyCZqC3NyyBkc9z4m+iry4LlqcMWJg==
     dependencies:
       "@types/node" "*"
+  
+  "@types/hapi__joi@^17.1.6":
+    version "17.1.6"
+    resolved "https://registry.yarnpkg.com/@types/hapi__joi/-/hapi__joi-17.1.6.tgz#b84663676aa9753c17183718338dd40ddcbd3754"
+    integrity sha512-y3A1MzNC0FmzD5+ys59RziE1WqKrL13nxtJgrSzjoO7boue5B7zZD2nZLPwrSuUviFjpKFQtgHYSvhDGfIE4jA==
   
   "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
     version "2.0.3"
