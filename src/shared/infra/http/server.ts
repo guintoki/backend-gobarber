@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import cors from 'cors';
 import { errors } from 'celebrate';
 
