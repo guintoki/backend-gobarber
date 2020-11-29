@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 import { inject, injectable } from 'tsyringe';
 
 import Appointment from '../infra/typeorm/entities/Appointment';
@@ -16,6 +17,9 @@ class LisProviderAppointmentsService {
   constructor(
     @inject('AppointmentsRepository')
     private appointmentsRepository: IAppointmentsRepository,
+
+    @inject('CacheProvider')
+    private cacheProvider: ICacheProvider,
   ) {}
 
   public async execute({
@@ -24,6 +28,8 @@ class LisProviderAppointmentsService {
     year,
     day,
   }: IRequest): Promise<Appointment[]> {
+    const cacheData = await this.cacheProvider.recover('');
+
     const appointments = await this.appointmentsRepository.findAllInDayFromProvider(
       {
         provider_id,
