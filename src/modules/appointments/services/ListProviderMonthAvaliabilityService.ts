@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import { inject, injectable } from 'tsyringe';
-import { getDaysInMonth, getDate } from 'date-fns';
+import { getDaysInMonth, getDate, isAfter } from 'date-fns';
 
 import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
 
@@ -43,13 +43,16 @@ class ListProviderMonthAvaliabilityService {
     );
 
     const availability = eachDayArray.map(day => {
+      const compareDate = new Date(year, month - 1, day, 23, 59, 59);
+
       const appoitmentsInDay = appoitments.filter(appoitment => {
         return getDate(appoitment.date) === day;
       });
 
       return {
         day,
-        avaliable: appoitmentsInDay.length < 10,
+        avaliable:
+          isAfter(compareDate, new Date()) && appoitmentsInDay.length < 10,
       };
     });
 
