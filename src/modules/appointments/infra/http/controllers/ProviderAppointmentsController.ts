@@ -7,16 +7,16 @@ import LisProviderAppointmentsService from '@modules/appointments/services/LisPr
 export default class ProviderAppointmentsController {
   public async index(request: Request, response: Response): Promise<Response> {
     const provider_id = request.user.id;
-    const { day, month, year } = request.body;
+    const { day, month, year } = request.query;
 
     const LisProviderAppointments = container.resolve(
       LisProviderAppointmentsService,
     );
 
     const appointments = await LisProviderAppointments.execute({
-      day,
-      month,
-      year,
+      day: Number(day),
+      month: Number(month),
+      year: Number(year),
       provider_id,
     });
 
