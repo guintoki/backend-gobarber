@@ -1,8 +1,7 @@
 /* eslint-disable camelcase */
+import AppError from '@shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
-
 import IStorageProvider from '@shared/container/providers/StorageProviders/models/IStorageProvider';
-import AppError from '../../../shared/errors/AppError';
 
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
@@ -13,7 +12,7 @@ interface IRequest {
 }
 
 @injectable()
-class UpdateUserAvatarService {
+class updateUserAvatarService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
@@ -26,16 +25,17 @@ class UpdateUserAvatarService {
     const user = await this.usersRepository.findById(user_id);
 
     if (!user) {
-      throw new AppError('Only auth users can change avatar', 401);
+      throw new AppError('Only authenticated users can change avatar.', 401);
     }
 
     if (user.avatar) {
+      // Deletar avatar anterior
       await this.storageProvider.deleteFile(user.avatar);
     }
 
-    const fileName = await this.storageProvider.saveFile(avatarFilename);
+    const filename = await this.storageProvider.saveFile(avatarFilename);
 
-    user.avatar = fileName;
+    user.avatar = filename;
 
     await this.usersRepository.save(user);
 
@@ -43,4 +43,4 @@ class UpdateUserAvatarService {
   }
 }
 
-export default UpdateUserAvatarService;
+export default updateUserAvatarService;
